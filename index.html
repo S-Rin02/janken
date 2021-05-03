@@ -40,20 +40,20 @@
 
     let difficulty = document.getElementById('difficulty');
     let hand = document.getElementById('hand');
-    
+
     easy.addEventListener('click', function() {
       game.difficulty = '易しい';
-      difficulty.innerHTML = '難易度を選択 ' +game.difficulty;
+      difficulty.innerHTML = '難易度を選択 ' + game.difficulty;
       easy.disabled = true;
       normal.disabled = true;
       hard.disabled = true;
-      
+
       gu.addEventListener('click', function() {
         gu.disabled = true;
         tyoki.disabled = true;
         pa.disabled = true;
         game.hand = 'グー';
-        hand.innerHTML = '出す手を決めよう！'+game.hand;
+        hand.innerHTML = '出す手を決めよう！' + game.hand;
         cpuHand();
       });
       tyoki.addEventListener('click', function() {
@@ -61,7 +61,7 @@
         tyoki.disabled = true;
         pa.disabled = true;
         game.hand = 'チョキ';
-        hand.innerHTML = '出す手を決めよう！'+game.hand;
+        hand.innerHTML = '出す手を決めよう！' + game.hand;
         cpuHand();
       });
       pa.addEventListener('click', function() {
@@ -69,7 +69,7 @@
         tyoki.disabled = true;
         pa.disabled = true;
         game.hand = 'パー';
-        hand.innerHTML = '出す手を決めよう！'+game.hand;
+        hand.innerHTML = '出す手を決めよう！' + game.hand;
         cpuHand();
       });
     });
@@ -85,7 +85,7 @@
         tyoki.disabled = true;
         pa.disabled = true;
         game.hand = 'グー';
-        hand.innerHTML = '出す手を決めよう！'+game.hand;
+        hand.innerHTML = '出す手を決めよう！' + game.hand;
         cpuHand();
       });
       tyoki.addEventListener('click', function() {
@@ -93,7 +93,7 @@
         tyoki.disabled = true;
         pa.disabled = true;
         game.hand = 'チョキ';
-        hand.innerHTML = '出す手を決めよう！'+game.hand;
+        hand.innerHTML = '出す手を決めよう！' + game.hand;
         cpuHand();
       });
       pa.addEventListener('click', function() {
@@ -101,13 +101,13 @@
         tyoki.disabled = true;
         pa.disabled = true;
         game.hand = 'パー';
-        hand.innerHTML = '出す手を決めよう！'+game.hand;
+        hand.innerHTML = '出す手を決めよう！' + game.hand;
         cpuHand();
       });
     });
     hard.addEventListener('click', function() {
       game.difficulty = '難しい';
-      difficulty.innerHTML = '難易度を選択 '+game.difficulty;
+      difficulty.innerHTML = '難易度を選択 ' + game.difficulty;
       normal.disabled = true;
       hard.disabled = true;
 
@@ -116,7 +116,7 @@
         tyoki.disabled = true;
         pa.disabled = true;
         game.hand = 'グー';
-        hand.innerHTML = '出す手を決めよう！'+game.hand;
+        hand.innerHTML = '出す手を決めよう！' + game.hand;
         cpuHand();
       });
       tyoki.addEventListener('click', function() {
@@ -124,7 +124,7 @@
         tyoki.disabled = true;
         pa.disabled = true;
         game.hand = 'チョキ';
-        hand.innerHTML = '出す手を決めよう！'+game.hand;
+        hand.innerHTML = '出す手を決めよう！' + game.hand;
         cpuHand();
       });
       pa.addEventListener('click', function() {
@@ -132,7 +132,7 @@
         tyoki.disabled = true;
         pa.disabled = true;
         game.hand = 'パー';
-        hand.innerHTML = '出す手を決めよう！'+game.hand;
+        hand.innerHTML = '出す手を決めよう！' + game.hand;
         cpuHand();
       });
     });
@@ -197,12 +197,19 @@
 
     function judge() {
 
+      let music = new Audio();
+
+
       //グー
       if (game.hand == 'グー' && game.result == '勝ち') {
         game.yourHand = 'チョキ';
       }
       if (game.hand == 'グー' && game.result == '負け') {
         game.yourHand = 'パー';
+        music.preload = "auto";
+        music.src = "yt1s.com.mp3";
+        music.load();
+        music.play();
       }
       if (game.hand == 'グー' && game.result == 'あいこ') {
         game.yourHand = 'グー';
@@ -214,6 +221,10 @@
       }
       if (game.hand == 'チョキ' && game.result == '負け') {
         game.yourHand = 'グー';
+        music.preload = "auto";
+        music.src = "yt1s.com.mp3";
+        music.load();
+        music.play();
       }
       if (game.hand == 'チョキ' && game.result == 'あいこ') {
         game.yourHand = 'チョキ';
@@ -225,6 +236,10 @@
       }
       if (game.hand == 'パー' && game.result == '負け') {
         game.yourHand = 'チョキ';
+        music.preload = "auto";
+        music.src = "yt1s.com.mp3";
+        music.load();
+        music.play();
       }
       if (game.hand == 'パー' && game.result == 'あいこ') {
         game.yourHand = 'パー';
